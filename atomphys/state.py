@@ -215,6 +215,16 @@ class State:
     @property
     def α(self):
         return self.polarizability
+    
+    def ACstark(self, mJ, laser, eps, e_z, I):
+        return polarizability.total_AC_stark_shift(
+            self,
+            mJ,
+            laser.omega,
+            eps, 
+            e_z,
+            I,
+        )
 
 
 class StateRegistry(UserList):
