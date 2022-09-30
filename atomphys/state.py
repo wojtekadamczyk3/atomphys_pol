@@ -8,6 +8,7 @@ import pint
 
 from . import _ureg
 from .calc import polarizability
+from .calc import ac_stark
 from .constants import gs
 from .laser import Laser
 from .term import L_inv, parse_term, print_term
@@ -217,7 +218,7 @@ class State:
         return self.polarizability
     
     def ACstark(self, mJ, laser, eps, e_z, I):
-        return polarizability.total_AC_stark_shift(
+        return ac_stark.total_ACshift(
             self,
             mJ,
             laser.omega,
